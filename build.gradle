@@ -6,8 +6,19 @@
  * user guide available at https://docs.gradle.org/3.5/userguide/java_library_plugin.html
  */
 
+
+buildscript {
+    repositories { 
+      mavenCentral()
+      mavenLocal()
+    }
+    dependencies { classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2' }
+}
+
+
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
+apply plugin: 'org.sonarqube'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -25,5 +36,16 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+    
+   // classpath "org.sonarsource.scanner.gradle: sonarqube-gradle-plugin:2.5"
 }
 
+
+sonarqube {
+	properties {
+		property "sonar.host.url", "http://localhost:9000" //  url is your sonar server
+		property "sonar.projectName", "project  display name"   //  this name will appear in dashboard
+		property "sonar.projectKey", "projectKey" // It sould be a keybased on this report is created
+		property "sonar.groovy.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"    
+	}
+}
