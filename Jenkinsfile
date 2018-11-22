@@ -1,34 +1,12 @@
-pipeline {
-    agent any
-
-    stages {
-    		
-		//try {
-				stage("Building SONAR ...") {
-				 steps {
-               		 sh './gradlew clean sonarqube'
-           		 }
-					
-				}
-			//} catch (e) {emailext attachLog: true, body: 'See attached log', subject: 'BUSINESS Build Failure', to: 'abc@gmail.com'
-			//	step([$class: 'WsCleanup'])
-			//return
-		//}
-
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+node {
+  stage('SCM') {
+    git 'https://github.com/foo/bar.git'
+  }
+  stage('SonarQube analysis') {
+    withSonarQubeEnv('My SonarQube Server') {
+      // requires SonarQube Scanner for Gradle 2.1+
+      // It's important to add --info because of SONARJNKNS-281
+      sh './gradlew --info sonarqube'
     }
+  }
 }
