@@ -40,7 +40,7 @@ dependencies {
    // classpath "org.sonarsource.scanner.gradle: sonarqube-gradle-plugin:2.5"
 }
 
-
+/*
 sonarqube {
 	properties {
 		property "sonar.host.url", "http://localhost:9001" //  url is your sonar server
@@ -49,3 +49,4 @@ sonarqube {
 		property "sonar.groovy.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"    
 	}
 }
+*/
