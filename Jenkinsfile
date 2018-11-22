@@ -3,7 +3,7 @@ node {
     git 'https://github.com/ravirajt01/sonarDemo.git'
   }
   stage('SonarQube analysis') {
-    withSonarQubeEnv('My SonarQube Server') {
+    withSonarQubeEnv() {
       // requires SonarQube Scanner for Gradle 2.1+
       // It's important to add --info because of SONARJNKNS-281
       sh './gradlew --info sonarqube'
