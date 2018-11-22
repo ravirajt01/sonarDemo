@@ -44,8 +44,8 @@ dependencies {
 sonarqube {
 	properties {
 		property "sonar.host.url", "http://localhost:9000" //  url is your sonar server
-		property "sonar.projectName", "project  display name"   //  this name will appear in dashboard
-		property "sonar.projectKey", "projectKey" // It sould be a keybased on this report is created
+		property "sonar.projectName", "Demo SQ proj"   //  this name will appear in dashboard
+		property "sonar.projectKey", "projectKeySQ" // It sould be a keybased on this report is created
 		property "sonar.groovy.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"    
 	}
 }
