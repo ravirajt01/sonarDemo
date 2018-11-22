@@ -1,6 +1,6 @@
 node {
   stage('SCM') {
-    git 'https://github.com/foo/bar.git'
+    git 'https://github.com/ravirajt01/sonarDemo.git'
   }
   stage('SonarQube analysis') {
     withSonarQubeEnv('My SonarQube Server') {
