@@ -1,4 +1,4 @@
-package sonarTest;
+package sonartest;
 
 public class Demo {
 
