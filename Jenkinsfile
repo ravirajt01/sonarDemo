@@ -1,7 +1,7 @@
 node {
-  //stage('SCM') {
-  //  git 'https://github.com/ravirajt01/sonarDemo.git'
- // }
+  stage('SCM') {
+    git 'https://github.com/ravirajt01/sonarDemo.git'
+  }
   stage('SonarQube analysis') {
     withSonarQubeEnv() {
       // requires SonarQube Scanner for Gradle 2.1+
